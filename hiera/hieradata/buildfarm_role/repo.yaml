@@ -3,130 +3,162 @@ jenkins::slave::labels: building_repository
 jenkins::slave::slave_mode: exclusive
 jenkins::slave::slave_name: building_repository
 
-jenkins-agent::gpg_key_id: 'E5944336'
-jenkins-agent::gpg_private_key: |
-    -----BEGIN PGP PRIVATE KEY BLOCK-----
-    Version: GnuPG v1
-
-    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
-    =Q44B
-    -----END PGP PRIVATE KEY BLOCK-----
-jenkins-agent::gpg_public_key: |
-    -----BEGIN PGP PUBLIC KEY BLOCK-----
-    Version: GnuPG v1
-
-    mQENBFRj9wABCADBxfCOCydUqsXS4JlhytBZroc7129AGHTn62xanKYXN1ihB5Ay
-    pLGJcz22MHnCegcCUA6HXOaOdLJTg8PZp/ncOGcLjRsmy+tkQzC0aX0yKhH1bKxe
-    TKe2/Kdk7y8SwW3Uw2r+R/d36DUoCTCRmibScIM4clD4eOOz/FZEVbnZuGmEKw1z
-    O5oMDgerEm8ou4s45RwIfTyt2UodxhLpjBWvuMKhKvc8JlpiZD/TMj+/uMhDe/eL
-    ijG+tMi9vUdo1B4xsDlLW7GFCmYXMBzhuO30TaC9PSE2e2cQS1jWX4113l32oXdg
-    IP8Nl1yxFGDPAKLQe+HNt7gyhoEkPP6tUKARABEBAAG0H1JPUyBSZWxlYXNlIDxu
-    b29uZUBleGFtcGxlLmNvbT6JATgEEwECACIFAlRj9wACGwMGCwkIBwMCBhUIAgkK
-    CwQWAgMBAh4BAheAAAoJEIsjFZ/llEM2cx8H/Ru8upiYAhwphPxOPEvkLfqZDEjI
-    LrFg4A5WhUvhMFpRzdOUovVCM9D73rtZEsaQgmtPIs1Mdp8M44E5G7sV9Zjp/4zf
-    T/vgopfBjG9M3foWkhWyupFlHm7AC9tv+3+vmzW5uzvrk/tRqirpU/5lm+wEE+Xq
-    Jy2UlkGj8o1WZDJXd0SoJF/MRXBwOa9kkpxNMLrOGSSra9GzBsIO9570QAUOD8pA
-    OKD+5pjDIdnySDpfBNIhv029dBhSKZg5sTzZr3dxise759l0W+8i1H6GUvxWe4km
-    8v7YDPyajsHs43ImbZQrMcr5l1TAVk8OBSLqGmtiLasRFnHQUxQyJNyo3gS5AQ0E
-    VGP3AAEIAM+qLZEg9qagVbm/FvS1wGlQVFgokjWGIZCxbzC2mNNAmyNXvOeCD899
-    N0xnprYd131Ocg53tllkYeSyUNBfO0f/CI0Msh+hzDivT0HqJxmxZGWHrm35to4e
-    LSIAOmoxDNXQwpC4ZNTUPZNNFdCfU0tGGXnA66BYpilfEv20eBgk1x+pu1vJxne1
-    /SPUwZAiiWb2ydRHvLJErUTcXGKn5UG4PlUAOCCoBC3195TIevlO9hlvtLkW9olu
-    hnWNtJJHfbjtwoQC+z5Kn4miFl/FkXAp8YfYSCF3glXAXY08dLIJkFCyi07J3jj6
-    I6xX0An+i8P/k/DyldjaMoutARLswuMAEQEAAYkBHwQYAQIACQUCVGP3AAIbDAAK
-    CRCLIxWf5ZRDNpN5CACdKoLcjJIIPQuCPyLdba5z6prRRo21Yud5dtyGGhOmDAt/
-    cjlmdwlta/ZkArkTB9is4iIDvo2D4PmRA756VHEBfhqwknt5DANMm3p9A5/z+sgX
-    n/punYuskxDjOU2+NwbBXRHgXz1vQpIEVtS3bQvjmyPn/yl31NM5zZ9Lwat/ynKj
-    iAvRflohugScLVSA0VCvn4gKlxCHBvtNS22rvsPW2zbOz38pp5gU+fNRUaLRmHna
-    b97l/64k31UzIQHeAHHbGODQfJ0PpKyS9UM4vvcMldUrBL4O4fLVaeqMjAhKSfcY
-    xaePFwP+okKW1h9qvwFhNF0JSCtdJrexdCf8jGE7
-    =E8ot
-    -----END PGP PUBLIC KEY BLOCK-----
+jenkins-agent::gpg_key_id: 'B9E295F7E407F783'
+jenkins-agent::gpg_private_key: |-
+  -----BEGIN PGP PRIVATE KEY BLOCK-----
+  
+  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
+  QA==
+  =Q9oE
+  -----END PGP PRIVATE KEY BLOCK-----
+jenkins-agent::gpg_public_key: |-
+  -----BEGIN PGP PUBLIC KEY BLOCK-----
+  
+  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
+  HPo7QNN5RoCL9El3kTy1cZOavHxCmjjknShA
+  =zUik
+  -----END PGP PUBLIC KEY BLOCK-----
 
 jenkins-agent::reprepro_updater_config: |
-    [ubuntu_building]
-    architectures: amd64 arm64 armhf i386 source
-    distros: lucid maverick natty oneiric precise quantal raring saucy trusty utopic vivid wily xenial yakkety zesty artful bionic focal wheezy jessie stretch buster
-    repository_path: /var/repos/ubuntu/building
-    signing_key: E5944336
-    upstream_config: /home/jenkins-agent/reprepro_config
+  [ubuntu_building]
+  architectures: amd64
+  distros: focal
+  repository_path: /var/repos/ubuntu/building
+  signing_key: B9E295F7E407F783
+  upstream_config: /home/jenkins-agent/reprepro_config
 
-    [ubuntu_testing]
-    architectures: amd64 arm64 armhf i386 source
-    distros: lucid maverick natty oneiric precise quantal raring saucy trusty utopic vivid wily xenial yakkety zesty artful bionic focal wheezy jessie stretch buster
-    repository_path: /var/repos/ubuntu/testing
-    signing_key: E5944336
-    upstream_config: /home/jenkins-agent/reprepro_config
+  [ubuntu_testing]
+  architectures: amd64
+  distros: focal
+  repository_path: /var/repos/ubuntu/testing
+  signing_key: B9E295F7E407F783
+  upstream_config: /home/jenkins-agent/reprepro_config
 
-    [ubuntu_main]
-    architectures: amd64 arm64 armhf i386 source
-    distros: lucid maverick natty oneiric precise quantal raring saucy trusty utopic vivid wily xenial yakkety zesty artful bionic focal wheezy jessie stretch buster
-    repository_path: /var/repos/ubuntu/main
-    signing_key: E5944336
-    upstream_config: /home/jenkins-agent/reprepro_config
+  [ubuntu_main]
+  architectures: amd64
+  distros: focal
+  repository_path: /var/repos/ubuntu/main
+  signing_key: B9E295F7E407F783
+  upstream_config: /home/jenkins-agent/reprepro_config
 
 jenkins-agent::reprepro_config:
-    '/home/jenkins-agent/reprepro_config/ros_bootstrap.yaml':
-        ensure: 'present'
-        content: |
-            name: ros_bootstrap
-            method: http://repos.ros.org/repos/ros_bootstrap
-            suites: [lucid, maverick, natty, oneiric, precise, quantal, raring, saucy, trusty, utopic, vivid, wily, xenial, yakkety, zesty, artful, bionic, focal,
-                     wheezy, jessie, stretch, buster]
-            component: main
-            architectures: [i386, amd64, arm64, armel, armhf, source]
-            # filter_formula: Package (% python* )
-            # needed until we deploy the gpg key
-            verify_release: blindtrust
-
+  '/home/jenkins-agent/reprepro_config/ros_bootstrap.yaml':
+    ensure: 'present'
+    content: |
+      name: ros_bootstrap
+      method: http://repos.ros.org/repos/ros_bootstrap
+      suites: [focal]
+      component: main
+      architectures: [amd64]
+      verify_release: blindtrust

@@ -14,11 +14,11 @@ jenkins::slave::version: *jenkins_swarm_version
 # This should be unchanged so that the masterurl always uses the hosts entry to reach master.
 jenkins::slave::masterurl: 'http://master:8080'
 
-master::ip: 172.30.1.145
-repo::ip: 172.30.1.69
+master::ip: 192.168.50.10
+repo::ip: 192.168.50.11
 
 # change this to match the timezone that this buildfarm is located in.
-timezone: 'America/Los_Angeles'
+timezone: 'Europe/Madrid'
 
 # SSH keys to be added to each host.
 # The jenkins-agent public key is one you'll want to generate specifically for your deployment.
@@ -44,35 +44,28 @@ ssh_keys:
   # * The comment is `jenkins-agent@my-buildfarm`.
   #
   # Use the comment as the key name
-  'jenkins-agent@my-buildfarm':
-      type: REPLACE_WITH_AGENT_SSH_KEY_TYPE
-      key: REPLACE_WITH_AGENT_SSH_KEY
-      user: jenkins-agent
-      require: User[jenkins-agent]
-    ## If you wish to add keys for administrative access you can do so as well.
-    ## Additional keys will not be accessible to jenkins agents without additional configuraiton.
-    #'adminuser@my-buildfarm':
-    #    key: REPLACE_WITH_YOUR_ADMIN_SSH_PUBLIC_KEY
-    #    type: REPLACE_WITH_YOUR_ADMIN_SSH_KEY_TYPE
-    #   user: root
-
-# Known hosts to add to the jenkins-agent user.
-# Necessary to avoid build failures requiring interactive approval of a new
-# host.
-# You should definitely add the host key for your `repo` machine and any
-# other machines you will connect to during builds.
-# Assuming you can access your repo host via ssh from your dev workstation, the command:
-#     ssh repo -T cat /etc/ssh/ssh_host_ed25519_key.pub
-# will print your ed25519 host key which you can paste below
+  'vagrant@rosin-test-beta':
+    key: 'AAAAB3NzaC1yc2EAAAADAQABAAACAQC59VI+PC6DU2ToReEQKKzGPNsa4/8DDslIC2kQSKRpMLnPw7YkwJoV0W6C35gCCltvOxJmnaPcnoIvtpGuULFN9jwhLeIBwwJ7EtNJ/7sdXsGdMzW6rh3buttkyx3yk28OovqhAtraz4C9Qi/QRfOVX7DoV+vC42UMhw7mI1FQU1ixpOZar3e2bpYUNyCao75htr+9+hiKUbR9Gm0DKJltbqxlpIJPf56NSSYBelLVnn7NC3FTdWO3aRwpZJgy7Kze4o5d4/af/x0kmQ979/5ia1wvcGfLNv/VBvbCUsHzBcKCHguS8EzkHFep0qQTeCDdbbUTVE7QUam3Ox2IAh3GDtE2yC6p2KnksZUZ+MHUFfBn2AsC5zFMNMRTTh0jtzXodbDmxGukM5ObQ4YW6lO4L7WgKxEhyqt4vWaoWGHsw0R5yBf1xWe2CnD3k4bpZYg2B+5f1Z1mLTcwSLqK+255OhQSytuk+09+1nyfazN/2EbDTBD644YqTPF/otqC6wpc4JPav9+B5lDxw3uTjORhDSC4Iobw3Y2+LnZqVz6R81rbSSByNtamOlDdUIfLoOfUJ90JItAdaQ3JrXLu3bTG5HIOFfnnu6YVQq0VOZqek3T64th8OHCPEBoHZTvUeIOFcdhJBPpW1KNTkbr91LNKHOjHmPOMLTL25kAai8Nylw=='
+    type: ssh-rsa
+    user: jenkins-agent
+    require: 'User[jenkins-agent]'
 ssh_host_keys:
-  repo: repo ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA+bpD1Hf9LB+VFN6V6xdRsTi05gPHd0l7LhWbDZpAQM
-
-# if `autoreconfigure` is true this will set a cron task to re-run puppet periodically.
-# Do not autoreconfigure your master machine during normal running, doing so will overwrite
-# any configuration changes made since provisioning.
+  ssh_host_keys:
+    repo: '# 192.168.50.11:22 SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.9 192.168.50.11
+      ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDPOCbhnDcK/whhj22vx3a9S5mPW2sBEtI2KmgoJd49Sgx2gr6bLlbMsHx5FDon+gUT1cooO5FI5LxnyIjXCjkd5JpR+4AUOn343sTzSAT7HgQi950e15/is1fcttVr6Rv0oDgrEYvzbyrha4yM9vSETrimFs4BMCk5B3PXfbJYqlS/qItKpKGyQDUsYC8vHeR+KQ5zz+xgLGuibrpB7IYtCXQjm7VoUtp14O/cdaI0Cj52AYEYB/aVedOCzwcxL6sqOTxH5FTrQA3jmnH73Nrohe4r4JrBoujNjp575bo1xiVQ+W7W1TrB9xUJtyYTUpPvL/PRFbC8JUdjWQ2Pic52jyprt/jafq9YlH4d2KDOlCKX0cSwYE3xwyWAAogOL72Vs4r3Ib/v7UhsEknajahO926oF7ggC1IuJofbFKdvlNZVd1lfvGHe6D1IfPjrnlWraq47TlNsrIPLkd+EkpJ/YNKHA/C6EIQqM/BuqBqhKkw+DEad8S7/DVzwyjOaamE=
+      # 192.168.50.11:22 SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.9 192.168.50.11 ssh-ed25519
+      AAAAC3NzaC1lZDI1NTE5AAAAIImdbRTjeyZVDkdvrtxEWH4YOaduzvrSPZZSUbbgaLsR # 192.168.50.11:22
+      SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.9 192.168.50.11 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBHelBiUjacJWyJlL8lZRxqp9V3StqIzNrafbbjUWFh524Dbd/dQEuMHc+wj00ZCn9rvJ3VeHDMgzrg1s1AL/16A=
+      # 192.168.50.11:22 SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.9 # 192.168.50.11:22
+      SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.9'
+    '#': '# github.com:22 SSH-2.0-babeld-9ff4dbf2 github.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCj7ndNxQowgcQnjshcLrqPEiiphnt+VTTvDP6mHBL9j1aNUkY4Ue1gvwnGLVlOhGeYrnZaMgRK6+PKCUXaDbC7qtbW8gIkhL7aGCsOr/C56SJMy/BCZfxd1nWzAOxSDPgVsmerOBYfNqltV9/hWCqBywINIR+5dIg6JTJ72pcEpEjcYgXkE2YEFXV1JHnsKgbLWNlhScqb2UmyRkQyytRLtL+38TGxkxCflmO+5Z8CSSNY7GidjMIZ7Q4zMjA2n1nGrlTDkzwDCsw+wqFPGQA179cnfGWOWRVruj16z6XyvxvjJwbz0wQZ75XK5tKSb7FNyeIEs4TT4jk+S4dhPeAUC5y+bDYirYgM4GC7uEnztnZyaVWQ7B381AK4Qdrwt51ZqExKbQpTUNn+EjqoTwvqNj4kqx5QUCI0ThS/YkOxJCXmPUWZbhjpCg56i+2aB6CmK2JGhn57K5mj0MNdBXA4/WnwH6XoPWJzK5Nyu2zB3nAZp+S5hpQs+p1vN1/wsjk=
+      # github.com:22 SSH-2.0-babeld-9ff4dbf2 github.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=
+      # github.com:22 SSH-2.0-babeld-9ff4dbf2 github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
+      # github.com:22 SSH-2.0-babeld-4a94ee6b # github.com:22 SSH-2.0-babeld-9ff4dbf2'
 autoreconfigure: false
 # Pay special attention to the Git branch name that appears twice in the invocation below.
-autoreconfigure::command: 'bash -c "cd /root/buildfarm_deployment_config && git fetch origin xenialize && git reset --hard origin/xenialize && ./reconfigure.bash"'
+autoreconfigure::command: 'bash -c "cd /root/buildfarm_deployment_config && git fetch
+  origin xenialize && git reset --hard origin/xenialize && ./reconfigure.bash"'
 
 # This docker option is being removed from the upstream puppetlabs-docker module.
 # It isn't required on Ubuntu Xenial and causes an error when deploying to AWS with the default AWS kernel.
