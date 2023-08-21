@@ -1,9 +1,9 @@
 user::admin::name: admin
-user::admin::password_hash: '#jbcrypt:$2a$10$R.Y1z9Jxe..HvSQBc5dQrOxl5T42TghSX.OPs9d0NCeg6fA0U.LTu'
+user::admin::password_hash: '#jbcrypt:$2a$10$dFAPxrhpqDSDhqMjxuiMeuzaaf2ZdutATUXkjh5lpXR0uMbURdd7u'
 
 credentials::jenkins-slave::username: jenkins-agent
-credentials::jenkins-slave::id: 1e7d4696-7fd4-4bc6-8c87-ebc7b6ce16e5
-credentials::jenkins-slave::passphrase: 4lRsx/NwfEndwUlcWOOnYg==
+credentials::jenkins-slave::id: addd7349-d389-4119-ab65-6e63ab136a23
+credentials::jenkins-slave::passphrase: ''
 
 # Uncomment below to increase the memory available for Jenkins
 # This is highly recommended for larger deployments
