@@ -12,7 +12,7 @@ jenkins::swarm_version: &jenkins_swarm_version '3.14'
 jenkins::slave::version: *jenkins_swarm_version
 
 # This should be unchanged so that the masterurl always uses the hosts entry to reach master.
-jenkins::slave::masterurl: 'http://master:8080'
+jenkins::slave::masterurl: 'http://192.168.50.10:8080'
 
 master::ip: 192.168.50.10
 repo::ip: 192.168.50.11
