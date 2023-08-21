@@ -1,7 +1,7 @@
 user::admin::name: admin
 user::admin::password_hash: '#jbcrypt:$2a$10$dFAPxrhpqDSDhqMjxuiMeuzaaf2ZdutATUXkjh5lpXR0uMbURdd7u'
 
-credentials::jenkins-slave::username: jenkins-agent
+credentials::jenkins-slave::username: vagrant
 credentials::jenkins-slave::id: addd7349-d389-4119-ab65-6e63ab136a23
 credentials::jenkins-slave::passphrase: ''
 
